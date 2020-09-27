@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import bootsrtappage from '../views/bootsrtappage.vue'
+import csspage from '../views/csspage.vue'
+import htmlpage from '../views/htmlpage.vue'
+import javapage from '../views/Javapage.vue'
+import javasriptpage from '../views/javasriptpage.vue'
+
 
 Vue.use(VueRouter)
 
@@ -11,13 +17,31 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/b4',
+    name: 'b4',
+    component: bootsrtappage
+  },
+  {
+    path: '/css',
+    name: 'css',
+    component: csspage
+  },
+  {
+    path: '/html',
+    name: 'html',
+    component: htmlpage
+  },
+  {
+    path: '/java',
+    name: 'java',
+    component: javapage
+  },
+  {
+    path: '/js',
+    name: 'js',
+    component: javasriptpage
+  },
+
 ]
 
 const router = new VueRouter({
