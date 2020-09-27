@@ -1,32 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div>
+    <nav
+      class="navbar navbar-expand-md navbar-dark"
+      style="background-color: #ff00ff"
+    >
+      <a class="navbar-brand" href="#">首页</a>
+      <button
+        class="navbar-toggler d-lg-none"
+        type="button"
+        data-toggle="collapse"
+        data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      ></button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#/about">Java </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#/b4">Bootstrap </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#/js">JavaSript </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#/html">Html </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#/css">CSS</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
