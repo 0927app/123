@@ -1,11 +1,15 @@
 <template>
     <div>
-        <h1>js</h1>
+        
+        <JavaScript/>
     </div>
 </template>
 <script>
+import JavaScript from '@/components/JavaScript.vue'
 export default {
-    
+    components:{
+        JavaScript
+    }
 }
 </script>
 <style lang="css">

@@ -18,8 +18,8 @@
       <!--题干-->
       <div class="container">
         <h1 class="display-5">
-          <span class="badge badge-dark mr-2">{{ html5[progress].id }}</span
-          >{{ html5[progress].subject }}
+          <span class="badge badge-dark mr-2">{{ b4[progress].id }}</span
+          >{{ b4[progress].subject }}
         </h1>
 
         <hr class="my-2" />
@@ -27,7 +27,7 @@
         <div v-if="this.progress < this.size">
           <div
             class="form-check my-3"
-            v-for="(i, index) in html5[progress].item"
+            v-for="(i, index) in b4[progress].item"
             :key="index"
           >
             <label class="form-check-label">
@@ -46,10 +46,10 @@
           </div>
         </div>
         <!-- 多选题 -->
-        <div v-else-if="this.progress < this.html5.length">
+        <div v-else-if="this.progress < this.b4.length">
           <div
             class="form-check my-3"
-            v-for="(i, index) in html5[progress].item"
+            v-for="(i, index) in b4[progress].item"
             :key="index"
           >
             <label class="form-check-label">
@@ -134,10 +134,10 @@
               </td>
               <td>
                 <span class="badge badge-primary">{{
-                  html5[index].answer
+                  b4[index].answer
                 }}</span>
               </td>
-              <td v-if="i == html5[index].answer">正确</td>
+              <td v-if="i == b4[index].answer">正确</td>
               <td v-else>错误</td>
             </tr>
             <tr>
@@ -166,7 +166,7 @@ export default {
   data() {
     return {
       //选项
-      itemTitles: ["A", "B", "C"],
+      itemTitles: ["A", "B", "C","D"],
       //进度
       progress: 0,
       //选择的回答
@@ -182,7 +182,7 @@ export default {
   },
   //计算属性
   computed: {
-    ...mapState(["html5"]),
+    ...mapState(["b4"]),
     jdt: function () {
       return `width:${(this.progress+1) * 10}% `;
     },
@@ -205,7 +205,7 @@ export default {
         //清空
         this.answe = [];
       } else if (
-        this.progress < this.html5.length
+        this.progress < this.b4.length
       ) {
         this.progress++;
         let s = "";
@@ -219,11 +219,11 @@ export default {
     },
     // 提交
     submitexam() {
-      if ((this.progress = this.html5.length - 1)) {
+      if ((this.progress = this.b4.length - 1)) {
         this.submit = true;
       }
       for (let i = 0; i < this.answers.length; i++) {
-        if (this.answers[i] == this.html5[i].answer) {
+        if (this.answers[i] == this.b4[i].answer) {
           this.sum += 10;
         }
       }

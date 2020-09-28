@@ -1,11 +1,15 @@
 <template>
     <div>
-        <h1>b4</h1>
+       
+        <Bootstrap/>
     </div>
 </template>
 <script>
+import Bootstrap from '@/components/Bootstrap.vue'
 export default {
-    
+    components:{
+        Bootstrap
+    }
 }
 </script>
 <style lang="css">

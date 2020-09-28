@@ -1,11 +1,15 @@
 <template>
     <div>
-        <h1>java</h1>
+       
+        <Java/>
     </div>
 </template>
 <script>
+import Java from '@/components/Java.vue'
 export default {
-    
+   components:{
+        Java
+   }
 }
 </script>
 <style lang="css">

@@ -1,11 +1,15 @@
 <template>
     <div>
-        <h1>css</h1>
+       
+        <Css/>
     </div>
 </template>
 <script>
+import Css from '@/components/Css.vue'
 export default {
-    
+    components:{
+        Css
+    }
 }
 </script>
 <style lang="css">
