@@ -10,7 +10,7 @@
         aria-valuemin="0"
         aria-valuemax="100"
       >
-        {{ (progress+1) * 10 }}%
+        {{ (progress + 1) * 10 }}%
       </div>
     </div>
 
@@ -73,7 +73,6 @@
               @click="add()"
               v-show="progress > 0"
               type="button"
-              name=""
               class="btn btn-outline-danger btn-lg btn-block"
             >
               上一题
@@ -82,36 +81,33 @@
           <div class="col-lg-6">
             <!--如果为空不能按-->
             <button
+              v-show="progress<9"
               v-if="answe != ''"
               @click="down()"
               type="button"
-              name=""
               class="btn btn-outline-primary btn-lg btn-block"
             >
               下一题
             </button>
             <button
+              v-show="progress<9"
               v-else
               @click="down()"
               type="button"
-              name=""
               class="btn btn-outline-primary btn-lg btn-block"
             >
               下一题
             </button>
           </div>
-          <div class="col-lg-12 mt-3">
-            <button
-           
-              @click="submitexam()"
-              
-              type="button"
-              name=""
-              class="btn btn-primary btn-lg btn-block"
-            >
-              提交
-            </button>
-          </div>
+        </div>
+        <div class="col-lg-12 mt-3">
+          <button
+            @click="submitexam()"
+            type="button"
+            class="btn btn-success btn-lg btn-block"
+          >
+            提交
+          </button>
         </div>
       </div>
 
@@ -162,13 +158,12 @@
   </div>
 </template>
 <script>
-
 import { mapState } from "vuex";
 export default {
   data() {
     return {
       //选项
-      itemTitles: ["A", "B", "C","D"],
+      itemTitles: ["A", "B", "C", "D"],
       //进度
       progress: 0,
       //选择的回答
@@ -186,7 +181,7 @@ export default {
   computed: {
     ...mapState(["java"]),
     jdt: function () {
-      return `width:${(this.progress+1) * 10}% `;
+      return `width:${(this.progress + 1) * 10}% `;
     },
   },
   //方法
@@ -196,6 +191,7 @@ export default {
       if (this.progress > 0) {
         this.progress--;
         this.answe = this.answers[this.progress];
+        this.answers.splice(this.progress, 1);
       }
     },
     //下一题
@@ -206,9 +202,7 @@ export default {
         this.answers.push(this.answe);
         //清空
         this.answe = [];
-      } else if (
-        this.progress < this.java.length
-      ) {
+      } else if (this.progress < this.java.length) {
         this.progress++;
         let s = "";
         for (let i = 0; i < this.answe.length; i++) {
@@ -221,6 +215,7 @@ export default {
     },
     // 提交
     submitexam() {
+      this.down();
       if ((this.progress = this.java.length - 1)) {
         this.submit = true;
       }

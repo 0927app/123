@@ -267,7 +267,7 @@ export default new Vuex.Store({
         java: [{
                 "id": "1",
                 "subject": "JAVA所定义的版本中不包括?",
-                "item": ["JAVA2 EE", "JAVA2 Card", "JAVA2 ME", "JAVA2 HE", "JAVA2 SE"],
+                "item": ["JAVA2 EE", "JAVA2 Card", "JAVA2 ME", "JAVA2 HE"],
                 "answer": "D"
             }, {
                 "id": "2",
