@@ -1,13 +1,20 @@
 <template>
     <div>
-        <h1>html</h1>
+        HTML
+        <Html/>
     </div>
 </template>
+
 <script>
+import Html from '@/components/Html.vue'
+
 export default {
-    
+    name:'html',
+    components:{
+        Html
+    }
 }
 </script>
-<style lang="css">
+<style lang="">
     
 </style>
