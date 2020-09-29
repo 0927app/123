@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Nav></Nav>
     <!--进度条-->
     <div class="progress my-3">
       <div
@@ -160,6 +161,7 @@
   </div>
 </template>
 <script>
+import Nav from '../components/Nav.vue'
 import { mapState } from "vuex";
 export default {
   data() {
@@ -229,6 +231,9 @@ export default {
       }
     },
   },
+   components:{
+    Nav,
+  }
 };
 </script>
 <style lang="">
