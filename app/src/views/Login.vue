@@ -94,8 +94,8 @@
               "
               >没有账号？</span
             >
-            <a
-              href="/Reg"
+            <router-link
+              to="/Reg"
               style="
                 text-decoration: none;
                 position: relative;
@@ -103,7 +103,8 @@
                 top: 105px;
                 font-size: 15px;
               "
-              >注册</a
+            >
+              注册</router-link
             >
           </div>
         </div>
@@ -112,7 +113,7 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState ,mapActions} from "vuex";
 // import { MapAction } from "vuex";
 // export default {
 //   methods: {
@@ -124,27 +125,36 @@ export default {
     return {
       username: null,
       password: null,
+      falsg: false,
     };
   },
-
+  computed: {
+    ...mapState(["users",'storeusername']),
+  },
   methods: {
-    login: function() {
+    ...mapActions(['addusername']),
+    login: function () {
+      //  console.log(this.users);
       for (let i = 0; i < this.users.length; i++) {
         if (
           this.username == this.users[i].username &&
           this.password == this.users[i].password
         ) {
-          alert("登陆成功");
-          document.location.href = "/Home";
+          this.falsg = true;
+          break;
         } else {
-          alert("登陆失败");
+          this.falsg = false;
         }
-        break;
+      }
+      if (this.falsg) {
+        alert("登陆成功");
+        this.addusername(this.username);
+        this.$router.push(`/Home`);
+        
+      } else {
+        alert("登陆失败");
       }
     },
-  },
-  computed: {
-    ...mapState(["users"]),
   },
 };
 </script>

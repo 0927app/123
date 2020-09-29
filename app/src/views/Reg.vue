@@ -33,9 +33,8 @@
                 type="text"
                 autocomplete="off"
                 class="form-control"
-                name="username"
+                v-model="username"
                 placeholder="用户名"
-                aria-describedby="helpId"
                 style="
                   width: 90%;
                   border-radius: 6px;
@@ -48,10 +47,9 @@
             <div class="form-group">
               <input
                 type="password"
-                name="password"
+                v-model="password"
                 class="form-control"
                 placeholder="密码"
-                aria-describedby="helpId"
                 style="
                   width: 90%;
                   border-radius: 6px;
@@ -79,17 +77,14 @@
               "
               >已有账号？</span
             >
-            <a
-              href="/"
-              style="
+            <router-link to="/" style="
                 text-decoration: none;
                 position: relative;
                 left: 120px;
                 top: 75px;
                 font-size: 15px;
-              "
-              >登录</a
-            >
+              ">
+              登录</router-link>
           </div>
         </div>
       </div>
@@ -97,7 +92,7 @@
   </div>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState ,mapActions} from "vuex";
 export default {
   data() {
     return {
@@ -105,7 +100,18 @@ export default {
       password: null,
     };
   },
-  methods: {},
+  methods: {
+    ...mapActions([
+      'adduser'
+    ]),
+    reg(){
+      let u = {username:this.username,password:this.password}
+      console.log(u);
+      this.adduser(u);
+      alert('注册成功！')
+      this.$router.push(`/`);
+    }
+  },
   computed: {
     ...mapState[{ users: "users" }],
   },

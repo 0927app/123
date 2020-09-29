@@ -152,9 +152,9 @@
           <button @click="back()" type="button" class="btn btn-success">返回首页</button>
 
         </div>
-        <div class="col">
+        <!-- <div class="col">
              <button @click="again()" type="button" class="btn btn-danger">再来一次</button>
-        </div>
+        </div> -->
       </div>
       </div>
     </div>
@@ -162,7 +162,7 @@
 </template>
 <script>
 import Nav from '../components/Nav.vue'
-import { mapState } from "vuex";
+import { mapState ,mapActions} from "vuex";
 export default {
   data() {
     return {
@@ -183,13 +183,14 @@ export default {
   },
   //计算属性
   computed: {
-    ...mapState(["javascript"]),
+    ...mapState(["javascript","storeusername"]),
     jdt: function () {
       return `width:${(this.progress + 1) * 10}% `;
     },
   },
   //方法
   methods: {
+     ...mapActions(['addhistory']),
     //上一题
     add() {
       if (this.progress > 0) {
@@ -229,14 +230,16 @@ export default {
           this.sum += 10;
         }
       }
+      let h = {name:'javaScript',score:this.sum,user:this.storeusername}
+    this.addhistory(h);
     },
       //再来一次
-    again(){
-     document.location.href="/b4"
-    },
+    // again(){
+    //  document.location.href="/b4"
+    // },
     //返回首页
-    back(){
-      document.location.href="/Home"
+   back(){
+     this.$router.push(`/Home`)
     }
   },
    components:{

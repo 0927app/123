@@ -28,7 +28,7 @@ const routes = [{
     component: UpPassword
   },
   {
-    path: 'History',
+    path: '/History',
     name: 'History',
     component: History
   },
