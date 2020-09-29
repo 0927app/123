@@ -104,9 +104,11 @@
         </div>
         <div class="col-lg-12 mt-3">
           <button
+          v-show="submit2"
             @click="submitexam()"
             type="button"
             class="btn btn-success btn-lg btn-block"
+            style="background-color: #ff00ff"
           >
             提交
           </button>
@@ -148,20 +150,16 @@
         <div class="col">
           <button @click="back()" type="button" class="btn btn-success">返回首页</button>
 
-        </div>
-        <!-- <div class="col">
-             <button @click="again()" type="button" class="btn btn-danger">再来一次</button>
-        </div> -->
-      </div>
     
       </div>
     </div>
-  
+      </div>
+      </div>
   </div>
 </template>
 <script>
 import Nav from '../components/Nav.vue'
-import { mapState , mapActions } from "vuex";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -175,6 +173,7 @@ export default {
       answers: [],
       //提交默认是false
       submit: false,
+      submit2:false,
       size: 7,
       // 分数
       sum: 0,
@@ -182,15 +181,13 @@ export default {
   },
   //计算属性
   computed: {
-    ...mapState(["b4","storeusername"]),
+    ...mapState(["b4"]),
     jdt: function () {
       return `width:${(this.progress + 1) * 10}% `;
     },
   },
   //方法
   methods: {
-     // 映射Action方法
-     ...mapActions(['addhistory']),
     //上一题
     add() {
       if (this.progress > 0) {
@@ -216,6 +213,9 @@ export default {
         this.answers.push(s);
         s = "";
         this.answe = [];
+        if(this.progress==9){
+          this.submit2=true
+        }
       }
     },
     // 提交
@@ -229,16 +229,14 @@ export default {
           this.sum += 10;
         }
       }
-    let h = {name:'b4',score:this.sum,user:this.storeusername}
-    this.addhistory(h);
     },
     //再来一次
-    // again(){
-    //  this.$router.push(`/`)
-    // },
+    again(){
+     document.location.href="/b4"
+    },
     //返回首页
     back(){
-     this.$router.push(`/Home`)
+      document.location.href="/Home"
     }
 
   },

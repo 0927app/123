@@ -1,5 +1,6 @@
 <template>
-  <div class="loginreg">
+<div id="app3">
+  <div class="loginreg" style="">
     <div class="container" style="width: 60%">
       <div class="row">
         <div
@@ -8,6 +9,7 @@
             border: 0px solid black;
             background-color: white;
             margin-left: 30%;
+            background:rgba(255,0,0,0);
           "
         >
           <div
@@ -21,6 +23,7 @@
               font-size: 18px;
               position: relative;
               background-color: white;
+              background:rgba(255,0,0,0);
             "
           >
             <br />
@@ -102,6 +105,7 @@
                 left: 120px;
                 top: 105px;
                 font-size: 15px;
+                color: #000000;
               "
             >
               注册</router-link
@@ -111,6 +115,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script>
 import { mapState ,mapActions} from "vuex";
@@ -158,3 +163,13 @@ export default {
   },
 };
 </script>
+<style lang="css">
+    #app3{
+     
+     background-image: url(../assets/1.jpg);
+     width: 100%;
+     height: 800px;
+     float: left;
+
+   }
+</style>

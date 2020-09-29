@@ -105,9 +105,11 @@
         </div>
         <div class="col-lg-12 mt-3">
           <button
+            v-show="submit2"
             @click="submitexam()"
             type="button"
             class="btn btn-success btn-lg btn-block"
+            style="background-color: #ff00ff"
           >
             提交
           </button>
@@ -176,6 +178,8 @@ export default {
       answers: [],
       //提交默认是false
       submit: false,
+      //隐藏提交按钮
+      submit2:false,
       size: 7,
       // 分数
       sum: 0,
@@ -195,8 +199,15 @@ export default {
     add() {
       if (this.progress > 0) {
         this.progress--;
-        this.answe = this.answers[this.progress];
-        this.answers.splice(this.progress, 1);
+        if(this.answers[this.progress].length>1){
+          this.answe = this.answers[this.progress].split("");
+          this.answers.splice(this.progress, 1);
+        }else{
+          this.answe = this.answers[this.progress];
+            console.log(this.answe);
+          this.answers.splice(this.progress, 1);
+        }
+        
       }
     },
     //下一题
@@ -216,8 +227,10 @@ export default {
         this.answers.push(s);
         s = "";
         this.answe = [];
+         if(this.progress==9){
+          this.submit2=true
+        }
       }
-        console.log(this.progress);
     },
     // 提交
     submitexam() {
