@@ -6,13 +6,34 @@ import csspage from '../views/csspage.vue'
 import htmlpage from '../views/htmlpage.vue'
 import javapage from '../views/Javapage.vue'
 import javasriptpage from '../views/javasriptpage.vue'
-
-
+import Login from '../views/Login.vue'
+import Reg from '../views/Reg.vue'
+import UpPassword from '../views/UpPassword.vue'
+import History from '../views/History.vue'
 Vue.use(VueRouter)
 
-const routes = [
-  {
+const routes = [{
     path: '/',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/Reg',
+    name: 'Reg',
+    component: Reg
+  },
+  {
+    path: '/UpPassword',
+    name: 'UpPassword',
+    component: UpPassword
+  },
+  {
+    path: 'History',
+    name: 'History',
+    component: History
+  },
+  {
+    path: '/Home',
     name: 'Home',
     component: Home
   },

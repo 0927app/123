@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <Nav></Nav>
     <!--进度条-->
     <div class="progress my-3">
       <div
@@ -142,20 +143,21 @@
             </tr>
           </tbody>
         </table>
-        <a>
-          <button
-            type="button"
-            name=""
-            class="btn btn-primary btn-lg btn-block"
-          >
-            结束答题
-          </button>
-        </a>
+        <div class="row">
+        <div class="col">
+          <button @click="back()" type="button" class="btn btn-success">返回首页</button>
+
+        </div>
+        <div class="col">
+             <button @click="again()" type="button" class="btn btn-danger">再来一次</button>
+        </div>
+      </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import Nav from '../components/Nav.vue'
 import { mapState } from "vuex";
 export default {
   data() {
@@ -223,7 +225,18 @@ export default {
         }
       }
     },
+     //再来一次
+    again(){
+     document.location.href="/b4"
+    },
+    //返回首页
+    back(){
+      document.location.href="/Home"
+    }
   },
+  components:{
+    Nav,
+  }
 };
 </script>
 <style lang="">

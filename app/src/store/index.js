@@ -263,6 +263,7 @@ export default new Vuex.Store({
             }
 
 
+
         ],
         java: [{
                 "id": "1",
@@ -319,9 +320,21 @@ export default new Vuex.Store({
             },
 
 
-        ]
+        ],
+        users: [{
+                username: "123",
+                password: "123",
+            },
+            {
+                username: "456",
+                password: "123",
+            },
+        ],
+
     },
+
     mutations: {},
     actions: {},
     modules: {}
+
 })
