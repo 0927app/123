@@ -194,11 +194,18 @@ export default {
   methods: {
      ...mapActions(['addhistory']),
     //上一题
-    add() {
+      add() {
       if (this.progress > 0) {
         this.progress--;
-        this.answe = this.answers[this.progress];
-        this.answers.splice(this.progress, 1);
+        if(this.answers[this.progress].length>1){
+          this.answe = this.answers[this.progress].split("");
+          this.answers.splice(this.progress, 1);
+        }else{
+          this.answe = this.answers[this.progress];
+            console.log(this.answe);
+          this.answers.splice(this.progress, 1);
+        }
+        
       }
     },
     //下一题
