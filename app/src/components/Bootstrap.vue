@@ -1,4 +1,5 @@
 <template>
+
   <div class="container">
     <!--进度条-->
     <div class="progress my-3">
@@ -142,17 +143,19 @@
             </tr>
           </tbody>
         </table>
-        <a>
-          <button
-            type="button"
-            name=""
-            class="btn btn-success btn-lg btn-block"
-          >
-            结束答题
-          </button>
-        </a>
+      <div class="row">
+        <div class="col">
+          <button @click="fanhui()" type="button" class="btn btn-success">返回首页</button>
+
+        </div>
+        <div class="col">
+             <button @click="zailai()" type="button" class="btn btn-danger">再来一次</button>
+        </div>
+      </div>
+    
       </div>
     </div>
+  
   </div>
 </template>
 <script>
@@ -223,6 +226,11 @@ export default {
         }
       }
     },
+    zailai(){
+      this.$router.push({
+        path:'/b4'
+      });
+    }
   },
 };
 </script>

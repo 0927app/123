@@ -318,51 +318,7 @@ export default new Vuex.Store({
                 "answer": "A"
             },
 
-            // [{
-            //     "subject": "选出合理的标识符(多选)",
-            //     "item": ["_sysl_111", "2 mail", "$change", "class"],
-            //     "answer": "AC"
-            // }, {
-            //     "subject": "下面所述步骤中，是创建进程做必须的步骤是?(多选)",
-            //     "item": ["由调度程序为进程分配CPU", "建立一个进程控制块", "为进程分配内存", "为进程分配文件描述符"],
-            //     "answer": "BC"
-            // }, {
-            //     "subject": "下面那些声明是合法的?(多选)",
-            //     "item": ["long l = 4990", "int i = 4L", "float f = 1.1", "double d = 34.4"],
-            //     "answer": "AD"
-            // }, {
-            //     "subject": "以下选项中选择正确的java表达式(多选)",
-            //     "item": ["int k=new String(“aa”)", "String str = String(“bb”)", "char c=74", "long j=8888"],
-            //     "answer": "CD"
-            // }, {
-            //     "subject": "以下哪些运算符是含有短路运算机制的?(多选)",
-            //     "item": ["&", "&&", "|", "||"],
-            //     "answer": "BD"
-            // }, {
-            //     "subject": "下面哪个函数是public void example(){....}的重载函数?(多选)",
-            //     "item": ["private void example（int m）{...}", " public int example（）{...}", " public void example2（）{...}",
-            //         "public int example（int m.float f）{...}"
-            //     ],
-            //     "answer": "AD"
-            // }],
 
-            // [{
-            //     "subject": "数组也是对象",
-            //     "item": ["T", "F"],
-            //     "answer": "A"
-            // }, {
-            //     "subject": "一个数组可以存放不同类型的数值",
-            //     "item": ["T", "F"],
-            //     "answer": "B"
-            // }, {
-            //     "subject": "Object是Java中所有类的共同父类",
-            //     "item": ["T", "F"],
-            //     "answer": "A"
-            // }, {
-            //     "subject": "java语言中不用区分字母的大写小写",
-            //     "item": ["T", "F"],
-            //     "answer": "B"
-            // }]
         ]
     },
     mutations: {},
