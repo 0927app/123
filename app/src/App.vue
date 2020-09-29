@@ -33,10 +33,25 @@
           </li>
         </ul>
       </div>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          个人中心
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/UpPassword">修改密码</a>
+          <a class="dropdown-item" href="/History">历史成绩</a>
+        </div>
+      </div>
     </nav>
     <router-view></router-view>
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
