@@ -241,7 +241,7 @@ export default {
           this.sum += 10;
         }
       }
-      let h = {name:'html',score:this.sum,user:this.scoreusername}
+      let h = {name:'html',score:this.sum,user:this.storeusername}
     this.addhistory(h);
     },
       //再来一次

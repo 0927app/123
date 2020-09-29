@@ -159,7 +159,7 @@
 </template>
 <script>
 import Nav from '../components/Nav.vue'
-import { mapState } from "vuex";
+import { mapState ,mapActions} from "vuex";
 export default {
   data() {
     return {
@@ -181,13 +181,14 @@ export default {
   },
   //计算属性
   computed: {
-    ...mapState(["b4"]),
+    ...mapState(["b4","storeusername"]),
     jdt: function () {
       return `width:${(this.progress + 1) * 10}% `;
     },
   },
   //方法
   methods: {
+      ...mapActions(['addhistory']),
     //上一题
      add() {
       if (this.progress > 0) {
@@ -236,6 +237,8 @@ export default {
           this.sum += 10;
         }
       }
+       let h = {name:'javaScript',score:this.sum,user:this.storeusername}
+    this.addhistory(h);
     },
     //再来一次
     again(){
